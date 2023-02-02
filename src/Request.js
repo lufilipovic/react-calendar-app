@@ -1,7 +1,18 @@
 import axios from 'axios';
+import { useState, useEffect } from 'react';
 
-const instance = axios.create({
-    baseURL: 'https://api.github.com/'
-});
+export const useCommits = () => {
+  const [commits, setCommits] = useState([]);
 
-export default instance;
+  useEffect(() => {
+    axios.get(`https://api.github.com/repos/lufilipovic/react-calendar-app/commits`)
+      .then(response => {
+        setCommits(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
+  return commits;
+};

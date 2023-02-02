@@ -1,20 +1,8 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
-//import axios from 'axios';
-import axios from './Request'
+import { useCommits } from './Request';
 
 function App() {
-  const [commits, setCommits] = useState([]);
-
-  useEffect(() => {
-    axios.get(`repos/lufilipovic/react-calendar-app/commits`)
-      .then(response => {
-        setCommits(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
+  const commits = useCommits();
 
   return (
     <div>
