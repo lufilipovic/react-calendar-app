@@ -15,17 +15,19 @@ function App() {
     },
   });
 
-    //show full names of days in the week
-    const formats = {
-      weekdayFormat: (date, culture, localizer) => localizer.format(date, 'dddd', culture),
-    }
+  //show full names of days in the week
+  const formats = {
+    weekdayFormat: (date, culture, localizer) => localizer.format(date, 'dddd', culture),
+  }
   return (
     <div>
       <Calendar
         localizer={localizer}
         events={commits}
-         //show the full name of day of the week
-         formats={formats}
+        //showing only this month without day week agenda views and buttons
+        views={["month"]}
+        //show the full name of day of the week
+        formats={formats}
         style={{ height: 500, margin: "50px" }} />
     </div>
   );
