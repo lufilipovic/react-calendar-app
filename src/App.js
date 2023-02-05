@@ -7,7 +7,13 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 function App() {
   const commits = useCommits();
   const localizer = momentLocalizer(moment)
-
+  //start from monday
+  moment.locale('ko', {
+    week: {
+      dow: 1,
+      doy: 1,
+    },
+  });
   return (
     <div>
       <Calendar
