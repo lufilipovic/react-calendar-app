@@ -28,6 +28,11 @@ function App() {
         views={["month"]}
         //show the full name of day of the week
         formats={formats}
+        //changes text of buttons for prev and next months
+        messages={{
+          previous: '<',
+          next: '>',
+        }}
         style={{ height: 500, margin: "50px" }} />
     </div>
   );
