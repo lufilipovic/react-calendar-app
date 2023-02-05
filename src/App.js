@@ -14,14 +14,18 @@ function App() {
       doy: 1,
     },
   });
+
+    //show full names of days in the week
+    const formats = {
+      weekdayFormat: (date, culture, localizer) => localizer.format(date, 'dddd', culture),
+    }
   return (
     <div>
       <Calendar
         localizer={localizer}
         events={commits}
-        startAccessor="start"
-        endAccessor="end"
-
+         //show the full name of day of the week
+         formats={formats}
         style={{ height: 500, margin: "50px" }} />
     </div>
   );
