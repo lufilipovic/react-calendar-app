@@ -8,7 +8,10 @@ import React, { useState } from 'react';
 function CustomCalendar() {
     const commits = useCommits();
     const localizer = momentLocalizer(moment)
-    //start from monday
+    const [showModal, setShowModal] = useState(false);
+    const [selectedEvent, setSelectedEvent] = useState({});
+
+    //Using moment.js to start the week from monday
     moment.locale('ko', {
         week: {
             dow: 1,
@@ -16,19 +19,18 @@ function CustomCalendar() {
         },
     });
 
-    //show full names of days in the week
+    //Formatting days in the week to show full names
     const formats = {
         weekdayFormat: (date, culture, localizer) => localizer.format(date, 'dddd', culture),
     }
 
-    const [showModal, setShowModal] = useState(false);
-    const [selectedEvent, setSelectedEvent] = useState({});
-
+    //Showing modal
     const handleEventClick = (event) => {
         setSelectedEvent(event);
         setShowModal(true);
     };
 
+    //Closing modal
     const handleModalClose = () => {
         setShowModal(false);
     };
@@ -36,31 +38,38 @@ function CustomCalendar() {
         <div>
             <Calendar
                 localizer={localizer}
+                //Adding events in the calendar to show commits using GitHub api
                 events={commits}
-                //showing only this month without day week agenda views and buttons
+                //Showing only current month
                 views={["month"]}
-                //show the full name of day of the week
+                //Formatter to show full names of days in the week
                 formats={formats}
-                //changes text of buttons for prev and next months
+                //Changing the text of buttons to show < and >
                 messages={{
                     previous: '<',
                     next: '>',
                 }}
+                //Adding event on click to show information about events using modal
                 onSelectEvent={handleEventClick}
                 style={{ height: '38em', margin: "50px" }} />
-            {showModal && (
-                <div className="modal">
-                    <div className="modal-content">
-                        <h2>{selectedEvent.title}</h2>
-                        <p>Name: {selectedEvent.name}</p>
-                        <p>Start time: {moment(selectedEvent.start).format("MMM DD, YYYY HH:mm")}</p>
-                        <p>Email: {selectedEvent.email}</p>
-                        <button onClick={handleModalClose}>Close</button>
-                    </div>
-                </div>
-            )}
+            {/* Calling funtion commitDetails that shows modal with about commits */}
+            {commitDetails()}
         </div>
     )
+
+    function commitDetails() {
+        return showModal && (
+            <div className="modal">
+                <div className="modal-content">
+                    <h2>{selectedEvent.title}</h2>
+                    <p>Name: {selectedEvent.name}</p>
+                    <p>Start time: {moment(selectedEvent.start).format("MMM DD, YYYY HH:mm")}</p>
+                    <p>Email: {selectedEvent.email}</p>
+                    <button onClick={handleModalClose}>Close</button>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default CustomCalendar

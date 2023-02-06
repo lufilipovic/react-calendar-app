@@ -6,7 +6,8 @@ export const useCommits = () => {
 
   useEffect(() => {
     const fetchCommits = async () => {
-      const response = await axios.get(`https://api.github.com/repos/lufilipovic/react-calendar-app/commits?sha=adding-calendar`);
+      //Calling GitHub api to get data about commits
+      const response = await axios.get(`https://api.github.com/repos/lufilipovic/react-calendar-app/commits?sha=refactoring-code`);
       setCommits(response.data.map((commit) => ({
         title: commit.commit.message,
         name: commit.commit.committer.name,

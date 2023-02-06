@@ -1,5 +1,5 @@
 .rbc-event {
-    background-color: gainsboro;
+    background-color: rgb(234, 234, 234);;
     color: rgb(74, 163, 165);
     font-size: 10px;
     height: 2em;
@@ -8,6 +8,7 @@
     margin-left: auto;
     margin-right: auto;
     word-break: break-all;
+    margin-bottom: 2px;
 }
 
 .rbc-day-bg {
@@ -27,12 +28,12 @@
 /*current months days*/
 .rbc-abs-full,
 .rbc-row-bg {
-    background-color: rgb(74, 163, 165, 0.1);
+    background-color: rgb(74, 163, 165, 0.03);
 }
 
 /*todays cell*/
 .rbc-today {
-    background-color: rgb(74, 163, 165, 0.15);
+    background-color: rgb(74, 163, 165, 0.3);
 }
 
 /*name of days in the week*/
