@@ -10,6 +10,10 @@
     word-break: break-all;
 }
 
+.rbc-day-bg {
+    background-color: rgb(74, 163, 165, 0.1);
+}
+
 /*number of days in the prev month*/
 .rbc-off-range {
     color: rgb(74, 163, 165, 0.02)
@@ -57,6 +61,7 @@
 /*more link */
 .rbc-button-link {
     padding-left: 10%;
+    background-color: transparent;
 }
 
 /*more link hover*/
