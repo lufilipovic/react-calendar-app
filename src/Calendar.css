@@ -1,0 +1,97 @@
+.rbc-event {
+    background-color: gainsboro;
+    color: rgb(74, 163, 165);
+    font-size: 10px;
+    height: 2em;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    word-break: break-all;
+}
+
+/*number of days in the prev month*/
+.rbc-off-range {
+    color: rgb(74, 163, 165, 0.02)
+}
+
+/*background of cells in prev/next month*/
+.rbc-off-range-bg {
+    background-color: rgb(74, 163, 165, 0.04)
+}
+
+/*current months days*/
+.rbc-abs-full,
+.rbc-row-bg {
+    background-color: rgb(74, 163, 165, 0.1);
+}
+
+/*todays cell*/
+.rbc-today {
+    background-color: rgb(74, 163, 165, 0.15);
+}
+
+/*name of days in the week*/
+.rbc-header {
+    font-size: medium;
+    padding: 10px;
+    color: rgb(74, 163, 165);
+    background-color: rgb(74, 163, 165, 0.3);
+
+}
+
+.rbc-event.rbc-selected,
+.rbc-day-slot .rbc-selected.rbc-background-event {
+    background-color: rgb(74, 163, 165, 0.3);
+    color: rgb(74, 163, 165);
+}
+
+.rbc-ellipsis,
+.rbc-show-more,
+.rbc-row-segment .rbc-event-content,
+.rbc-event-label {
+    color: rgb(74, 163, 165);
+    font-size: 10px;
+}
+
+/*more link */
+.rbc-button-link {
+    padding-left: 10%;
+}
+
+/*more link hover*/
+.rbc-button-link:hover {
+    color: rgb(74, 163, 165, 0.5);
+    font-size: 10px;
+    padding-left: 10%;
+}
+
+/*month name*/
+.rbc-toolbar .rbc-toolbar-label {
+    padding-left: 70%;
+    font-size: x-large;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background-color: white;
+    color: rgb(74, 163, 165);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    max-width: 600px;
+    width: 80%;
+    z-index: 1000;
+}
