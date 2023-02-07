@@ -1,11 +1,11 @@
 # React Calendar Application
 
-Application that includes: \
-* Big Calendar as a library for calendar, \
-* REST API from GitHub to show commits as events in the calendar, \
-* moment.js as a library for dates, \
-* switching between months, \
-* displaying only the dates in this month, \
+Application that includes: 
+* Big Calendar as a library for calendar, 
+* REST API from GitHub to show commits as events in the calendar, 
+* moment.js as a library for dates, 
+* switching between months, 
+* displaying only the dates in this month, 
 * clicking on an event shows more information about commits.
 
 ## Available Scripts
