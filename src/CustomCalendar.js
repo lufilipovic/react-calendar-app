@@ -10,6 +10,8 @@ function CustomCalendar() {
     const localizer = momentLocalizer(moment)
     const [showModal, setShowModal] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState({});
+    const [setView] = React.useState("month");
+    const [selectedDate, setSelectedDate] = React.useState(new Date());
 
     //Using moment.js to start the week from monday
     moment.locale('ko', {
@@ -34,6 +36,18 @@ function CustomCalendar() {
     const handleModalClose = () => {
         setShowModal(false);
     };
+
+    // Extract the year and month from the URL
+    const [year, month, day] = window.location.pathname
+        .substr(1)
+        .split("-")
+        .map(val => parseInt(val, 10));
+
+    // Use the extracted year and month to set the selectedDate
+    React.useEffect(() => {
+        setSelectedDate(new Date(year, month - 1, day || 1));
+    }, [year, month, day]);
+
     return (
         <div>
             <Calendar
@@ -51,6 +65,12 @@ function CustomCalendar() {
                 }}
                 //Adding event on click to show information about events using modal
                 onSelectEvent={handleEventClick}
+                //Setting the date to selected date
+                date={selectedDate}
+                //Navigating to selected date
+                onNavigate={(date) => setSelectedDate(date)}
+                //Changing the view to new view
+                onView={(view) => setView(view)}
                 style={{ height: '38em', margin: "50px" }} />
             {/* Calling funtion commitDetails that shows modal with about commits */}
             {commitDetails()}
